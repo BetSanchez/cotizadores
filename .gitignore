@@ -1,0 +1,88 @@
+# === Visual Studio ===
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# === Build Results ===
+bin/
+obj/
+
+# === NuGet Packages ===
+/packages/       # ← carpeta que NO debe subirse
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts
+
+# === ASP.NET Temporary Files ===
+App_Data/
+*.dbmdl
+
+# === Roslyn ===
+*.cache
+*.ide
+
+# === Web Optimizations ===
+**/BundleConfig.cs
+**/CodeAnalysisLog.xml
+*.log
+
+# === Publish Output ===
+*.Publish.xml
+*.pubxml
+*.publishproj
+
+# === IIS Express ===
+.vscode/
+.ionide/
+.vscode-test/
+*.VSPSCC
+*.vspcc
+
+# === User-specific Files ===
+*.userprefs
+*.orig
+
+# === Windows Image Thumbnail DB ===
+Thumbs.db
+ehthumbs.db
+
+# === ReSharper ===
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# === Rider ===
+.idea/
+
+# === JetBrains Rider ===
+.idea/
+.idea/**
+
+# === TFS ===
+$tf/
+
+# === Backup and temp files ===
+*.bak
+*.tmp
+*.temp
+
+# === Logs ===
+*.log
+
+# === Other ===
+*.swp
+*.swo
+*.DS_Store
+
+# === Web.config.user ===
+**/Web.config.user
+
+# === Node ===
+node_modules/
+
+# === Deployment ===
+publish/
