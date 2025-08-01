@@ -5,10 +5,10 @@ namespace pr_proyecto.Repository
 {
     public interface IEmpresaRepository
     {
+        void Add(Empresa empresa);
+        void Update(Empresa empresa);
+        void Delete(Empresa empresa);
         Empresa GetById(int id);
         IEnumerable<Empresa> GetAll();
-        void Add(Empresa entity);
-        void Update(Empresa entity);
-        void Delete(Empresa entity);
     }
 }

@@ -5,10 +5,10 @@ namespace pr_proyecto.Repository
 {
     public interface ISucursalRepository
     {
+        void Add(Sucursal sucursal);
+        void Update(Sucursal sucursal);
+        void Delete(Sucursal sucursal);
         Sucursal GetById(int id);
         IEnumerable<Sucursal> GetAll();
-        void Add(Sucursal entity);
-        void Update(Sucursal entity);
-        void Delete(Sucursal entity);
     }
 }

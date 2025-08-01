@@ -6,6 +6,9 @@ namespace pr_proyecto.Services
     public interface IEmpresaService
     {
         void Registrar(Empresa empresa);
-        IEnumerable<Empresa> ObtenerTodos();
+        IEnumerable<Empresa> ObtenerTodas();
+        Empresa ObtenerPorId(int id);
+        void Actualizar(Empresa empresa);
+        void Eliminar(int id);
     }
 }

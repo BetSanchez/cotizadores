@@ -1,6 +1,7 @@
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using pr_proyecto.Models;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace pr_proyecto.Data
 {
@@ -8,7 +9,10 @@ namespace pr_proyecto.Data
     {
         public AppDbContext() 
             : base("DefaultConnection") 
-        { }
+        {
+            // Configurar para MySQL
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        }
 
         // DbSets
         public DbSet<Pais> Paises { get; set; }
@@ -30,32 +34,39 @@ namespace pr_proyecto.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // 1. Desactivar pluralización automática
+            // Configuración específica para MySQL
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            // 2. Clave compuesta para la tabla intermedia
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            
+            // Configurar clave compuesta para PlantillaServicio
             modelBuilder.Entity<PlantillaServicio>()
                 .HasKey(ps => new { ps.IdPlantilla, ps.IdServicio });
 
-            // 3. Mapear cada entidad al nombre real de la tabla (minúsculas y plural)
-            modelBuilder.Entity<Pais>().ToTable("paises");
-            modelBuilder.Entity<Estado>().ToTable("estados");
-            modelBuilder.Entity<Municipio>().ToTable("municipios");
-            modelBuilder.Entity<Colonia>().ToTable("colonias");
-            modelBuilder.Entity<Empresa>().ToTable("empresas");
-            modelBuilder.Entity<Rol>().ToTable("roles");
-            modelBuilder.Entity<Usuario>().ToTable("usuarios");
-            modelBuilder.Entity<Sucursal>().ToTable("sucursales");
-            modelBuilder.Entity<Contacto>().ToTable("contactos");
-            modelBuilder.Entity<Cotizacion>().ToTable("cotizaciones");
-            modelBuilder.Entity<Servicio>().ToTable("servicios");
-            modelBuilder.Entity<CotizacionServicio>().ToTable("cotizacion_servicios");
-            modelBuilder.Entity<Plantilla>().ToTable("plantillas");
-            modelBuilder.Entity<PlantillaServicio>().ToTable("plantilla_servicios");
-            modelBuilder.Entity<Privilegio>().ToTable("privilegios");
-            modelBuilder.Entity<PrivilegioRol>().ToTable("privilegio_rol");
+            // Configurar relaciones específicas
+            modelBuilder.Entity<Sucursal>()
+                .HasRequired(s => s.Empresa)
+                .WithMany(e => e.Sucursales)
+                .HasForeignKey(s => s.IdEmpresa);
+
+            modelBuilder.Entity<Sucursal>()
+                .HasRequired(s => s.Colonia)
+                .WithMany(c => c.Sucursales)
+                .HasForeignKey(s => s.IdColonia)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Contacto>()
+                .HasRequired(c => c.Sucursal)
+                .WithMany(s => s.Contactos)
+                .HasForeignKey(c => c.IdSucursal);
+
+            modelBuilder.Entity<Usuario>()
+                .HasRequired(u => u.Rol)       
+                .WithMany(r => r.Usuarios)    
+                .HasForeignKey(u => u.IdRol);  
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }

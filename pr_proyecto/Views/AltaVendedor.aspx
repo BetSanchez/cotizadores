@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Alta de Cliente" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="pr_proyecto.WebForm3" %>
+﻿<%@ Page Title="Alta de Vendedor" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="pr_proyecto.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -159,6 +159,17 @@
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         }
 
+        .btn-secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 114, 128, 0.4);
+        }
+
         .text-danger {
             background: #fef2f2;
             border: 1px solid #fecaca;
@@ -167,6 +178,46 @@
             margin-bottom: 24px;
             color: #dc2626;
             font-size: 0.875rem;
+        }
+
+        /* Estilos para mensajes de feedback */
+        .alert {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            animation: slideInDown 0.3s ease-out;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .alert i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .form-section {
@@ -299,6 +350,9 @@
     <div class="container">
         <div class="form-container">
             <div class="form-content">
+                <!-- Panel para mensajes de feedback -->
+                <asp:Panel ID="pnlMensajes" runat="server" Visible="false" CssClass="alert" />
+                
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger" />
 
             <div class="form-section">
@@ -452,9 +506,17 @@
                 <asp:Button 
                     ID="btnGuardar" 
                     runat="server" 
-                    Text="Guardar Cliente" 
+                    Text="Guardar Vendedor" 
                     CssClass="btn btn-primary"
                     OnClick="btnGuardar_Click" />
+                
+                <asp:Button 
+                    ID="btnLimpiar" 
+                    runat="server" 
+                    Text="Limpiar Formulario" 
+                    CssClass="btn btn-secondary"
+                    OnClick="btnLimpiar_Click" 
+                    CausesValidation="false" />
             </div>
         </div>
     </div>

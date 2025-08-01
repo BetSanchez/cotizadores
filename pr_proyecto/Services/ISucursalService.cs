@@ -6,6 +6,10 @@ namespace pr_proyecto.Services
     public interface ISucursalService
     {
         void Registrar(Sucursal sucursal);
-        IEnumerable<Sucursal> ObtenerTodos();
+        IEnumerable<Sucursal> ObtenerTodas();
+        Sucursal ObtenerPorId(int id);
+        IEnumerable<Sucursal> ObtenerPorEmpresa(int idEmpresa);
+        void Actualizar(Sucursal sucursal);
+        void Eliminar(int id);
     }
 }

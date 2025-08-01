@@ -10,6 +10,6 @@ namespace pr_proyecto.Repository
         void Add(Usuario usuario);
         void Delete(Usuario usuario);
         void Update(Usuario usuario);
-
+        Usuario Autenticar(string nombreUsuario, string contraseña);
     }
 }

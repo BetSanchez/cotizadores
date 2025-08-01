@@ -13,24 +13,30 @@ namespace pr_proyecto.Models
 
         [Required]
         [Column("nom_comercial")]
+        [MaxLength(100)]
         public string NomComercial { get; set; }
 
         [Column("razon_social")]
+        [MaxLength(150)]
         public string RazonSocial { get; set; }
 
         [Column("giro")]
+        [MaxLength(100)]
         public string Giro { get; set; }
 
         [Required]
         [Column("telefono")]
+        [MaxLength(15)]
         public string Telefono { get; set; }
 
         [Required]
         [Column("correo")]
+        [MaxLength(100)]
         public string Correo { get; set; }
 
         [Required]
         [Column("direccion")]
+        [MaxLength(200)]
         public string Direccion { get; set; }
 
         [Column("metros")]
@@ -50,14 +56,7 @@ namespace pr_proyecto.Models
         [ForeignKey("IdColonia")]
         public virtual Colonia Colonia { get; set; }
 
-        [Column("id_contacto")]
-        public int? IdContacto { get; set; }
-
-        [ForeignKey("IdContacto")]
-        public virtual Contacto Contacto { get; set; }
-
         public virtual ICollection<Contacto> Contactos { get; set; } = new List<Contacto>();
-
         public virtual ICollection<Cotizacion> Cotizaciones { get; set; } = new List<Cotizacion>();
     }
 }

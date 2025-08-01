@@ -7,5 +7,6 @@ namespace pr_proyecto.Services
     {
         void Registrar(Usuario usuario);
         IEnumerable<Usuario> ObtenerTodos();
+        Usuario Autenticar(string nombreUsuario, string contraseña);
     }
 }

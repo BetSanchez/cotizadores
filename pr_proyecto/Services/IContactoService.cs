@@ -7,5 +7,9 @@ namespace pr_proyecto.Services
     {
         void Registrar(Contacto contacto);
         IEnumerable<Contacto> ObtenerTodos();
+        Contacto ObtenerPorId(int id);
+        IEnumerable<Contacto> ObtenerPorSucursal(int idSucursal);
+        void Actualizar(Contacto contacto);
+        void Eliminar(int id);
     }
 }
