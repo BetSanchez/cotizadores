@@ -7,6 +7,7 @@ namespace pr_proyecto.Services
     {
         void Registrar(Sucursal sucursal);
         IEnumerable<Sucursal> ObtenerTodas();
+        IEnumerable<Sucursal> ObtenerTodos();
         Sucursal ObtenerPorId(int id);
         IEnumerable<Sucursal> ObtenerPorEmpresa(int idEmpresa);
         void Actualizar(Sucursal sucursal);

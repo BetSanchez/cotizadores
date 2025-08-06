@@ -23,6 +23,6 @@ namespace pr_proyecto.Models
         [ForeignKey("IdPais")]
         public virtual Pais Pais { get; set; }
 
-        public virtual ICollection<Municipio> Municipios { get; set; }
+        public virtual ICollection<Municipio> Municipios { get; set; } = new List<Municipio>();
     }
 }

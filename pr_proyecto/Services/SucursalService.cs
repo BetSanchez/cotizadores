@@ -62,6 +62,9 @@ namespace pr_proyecto.Services
         public IEnumerable<Sucursal> ObtenerTodas()
             => _repo.GetAll();
 
+        public IEnumerable<Sucursal> ObtenerTodos()
+            => _repo.GetAll();
+
         public Sucursal ObtenerPorId(int id)
             => _repo.GetById(id);
 

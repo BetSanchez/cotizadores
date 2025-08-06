@@ -16,6 +16,6 @@ namespace pr_proyecto.Models
         [MaxLength(100)]
         public string Nombre { get; set; }
 
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
     }
 }

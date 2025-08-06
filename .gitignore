@@ -9,6 +9,7 @@
 # === Build Results ===
 bin/
 obj/
+/packages/
 
 # === NuGet Packages ===
 /packages/       # ← carpeta que NO debe subirse

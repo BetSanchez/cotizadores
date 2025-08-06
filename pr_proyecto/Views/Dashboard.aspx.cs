@@ -1,5 +1,5 @@
 ﻿using System;
-using pr_proyecto.utils;
+using pr_proyecto.Helpers;
 
 namespace pr_proyecto.Views
 {
@@ -31,11 +31,41 @@ namespace pr_proyecto.Views
                 lblUsuario.Text = username ?? "N/A";
                 lblNombre.Text = fullName ?? "N/A";
                 lblRol.Text = role ?? "N/A";
+
+                // Configurar funcionalidades según el rol
+                ConfigurarFuncionalidadesSegunRol(role);
             }
             catch (Exception ex)
             {
                 // En caso de error, redirigir al login
                 Response.Redirect("~/Views/Login.aspx");
+            }
+        }
+
+        private void ConfigurarFuncionalidadesSegunRol(string rol)
+        {
+            // Ocultar todos los paneles primero
+            panelVendedor.Visible = false;
+            panelAdmin.Visible = false;
+
+            // Mostrar panel según el rol
+            if (rol != null)
+            {
+                switch (rol.ToLower())
+                {
+                    case "vendedor":
+                        panelVendedor.Visible = true;
+                        break;
+                    case "administrador":
+                    case "admin":
+                        panelAdmin.Visible = true;
+                        panelVendedor.Visible = true; // Admin puede ver funciones de vendedor también
+                        break;
+                    default:
+                        // Por defecto, mostrar funciones básicas de vendedor
+                        panelVendedor.Visible = true;
+                        break;
+                }
             }
         }
     }

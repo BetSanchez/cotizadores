@@ -1,4 +1,3 @@
-// pr_proyecto.Repositories/CotizacionRepository.cs
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -34,6 +33,54 @@ namespace pr_proyecto.Repository
         {
             _context.Cotizaciones.Remove(entity);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Cotizacion> ObtenerUltimasCotizaciones(int cantidad)
+        {
+            return _context.Cotizaciones
+                .OrderByDescending(c => c.FechaGuardado)
+                .Take(cantidad)
+                .ToList();
+        }
+
+        public void Crear(Cotizacion cotizacion, IEnumerable<CotizacionServicio> servicios)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    // Guardar la cotización
+                    _context.Cotizaciones.Add(cotizacion);
+                    _context.SaveChanges();
+
+                    // Crear nuevos objetos CotizacionServicio para evitar problemas de tracking
+                    foreach (var servicio in servicios)
+                    {
+                        var nuevoCotizacionServicio = new CotizacionServicio
+                        {
+                            IdCotizacion = cotizacion.IdCotizacion,
+                            IdServicio = servicio.IdServicio,
+                            Cantidad = servicio.Cantidad,
+                            ValorUnitario = servicio.ValorUnitario,
+                            Subtotal = servicio.Subtotal,
+                            Descripcion = servicio.Descripcion,
+                            Terminos = servicio.Terminos,
+                            Incluye = servicio.Incluye,
+                            Condiciones = servicio.Condiciones
+                            // NO asignar Servicio ni Cotizacion para evitar conflictos de tracking
+                        };
+                        _context.CotizacionServicios.Add(nuevoCotizacionServicio);
+                    }
+
+                    _context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
     }
 }

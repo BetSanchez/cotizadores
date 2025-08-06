@@ -103,43 +103,120 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5><i class="fas fa-cogs text-primary"></i> Acciones Rápidas</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3 mb-3">
-                               <a href="/Views/AltaCliente.aspx" class="btn btn-outline-primary w-100">
-    <i class="fas fa-user-plus"></i><br>
-    Registrar Cliente
-</a>
-
+        <!-- Panel de Funciones del Vendedor -->
+        <asp:Panel ID="panelVendedor" runat="server" Visible="true">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5><i class="fas fa-user-tie"></i> Funciones del Vendedor</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/Crear_cotizacion.aspx" class="btn btn-outline-success w-100">
+                                        <i class="fas fa-file-invoice"></i><br>
+                                        Crear Cotización
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/AltaCliente.aspx" class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-user-plus"></i><br>
+                                        Alta Cliente
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/VerCotizaciones.aspx" class="btn btn-outline-info w-100">
+                                        <i class="fas fa-list"></i><br>
+                                        Ver Cotizaciones
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/VerEmpresas.aspx" class="btn btn-outline-warning w-100">
+                                        <i class="fas fa-building"></i><br>
+                                        Empresas/Sucursales
+                                    </a>
+                                </div>
                             </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="#" class="btn btn-outline-success w-100">
-                                    <i class="fas fa-file-invoice"></i><br>
-                                    Nueva Cotización
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="#" class="btn btn-outline-info w-100">
-                                    <i class="fas fa-users"></i><br>
-                                    Ver Clientes
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="#" class="btn btn-outline-warning w-100">
-                                    <i class="fas fa-chart-bar"></i><br>
-                                    Reportes
-                                </a>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/VerContactos.aspx" class="btn btn-outline-secondary w-100">
+                                        <i class="fas fa-address-book"></i><br>
+                                        Ver Contactos
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/VerServicios.aspx" class="btn btn-outline-dark w-100">
+                                        <i class="fas fa-tools"></i><br>
+                                        Ver Servicios
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/Reportes.aspx" class="btn btn-outline-purple w-100">
+                                        <i class="fas fa-chart-bar"></i><br>
+                                        Generar Reportes
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </asp:Panel>
+
+        <!-- Panel de Funciones del Administrador -->
+        <asp:Panel ID="panelAdmin" runat="server" Visible="false">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-danger text-white">
+                            <h5><i class="fas fa-user-shield"></i> Funciones del Administrador</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/GestionServicios.aspx" class="btn btn-outline-danger w-100">
+                                        <i class="fas fa-cogs"></i><br>
+                                        Gestionar Servicios
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/AltaVendedor.aspx" class="btn btn-outline-warning w-100">
+                                        <i class="fas fa-user-plus"></i><br>
+                                        Alta Vendedor
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/EstadoCotizaciones.aspx" class="btn btn-outline-info w-100">
+                                        <i class="fas fa-chart-line"></i><br>
+                                        Estado Cotizaciones
+                                    </a>
+                                </div>
+                                                               <div class="col-md-3 mb-3">
+                                   <a href="/Views/GestionUsuarios.aspx" class="btn btn-outline-dark w-100">
+                                       <i class="fas fa-users-cog"></i><br>
+                                       Gestión Usuarios
+                                   </a>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-md-3 mb-3">
+                                   <a href="/Views/GestionRoles.aspx" class="btn btn-outline-purple w-100">
+                                       <i class="fas fa-user-shield"></i><br>
+                                       Gestión Roles
+                                   </a>
+                               </div>
+                               <div class="col-md-3 mb-3">
+                                   <a href="/Views/GestionPlantillas.aspx" class="btn btn-outline-success w-100">
+                                       <i class="fas fa-file-alt"></i><br>
+                                       Gestión Plantillas
+                                   </a>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
     </div>
 </asp:Content> 

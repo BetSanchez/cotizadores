@@ -10,5 +10,7 @@ namespace pr_proyecto.Repository
         void Add(Cotizacion entity);
         void Update(Cotizacion entity);
         void Delete(Cotizacion entity);
+        IEnumerable<Cotizacion> ObtenerUltimasCotizaciones(int cantidad);
+        void Crear(Cotizacion cotizacion, IEnumerable<CotizacionServicio> servicios);
     }
 }

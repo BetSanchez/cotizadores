@@ -50,7 +50,7 @@ namespace pr_proyecto.Models
         [Column("estatus")]
         [Required]
         [MaxLength(1)]
-        public char Estatus { get; set; }
+        public string Estatus { get; set; }
 
         [Column("version")]
         [Required]
@@ -81,6 +81,6 @@ namespace pr_proyecto.Models
         [ForeignKey(nameof(IdSucursal))]
         public virtual Sucursal Sucursal { get; set; }
 
-        public virtual ICollection<CotizacionServicio> Servicios { get; set; }
+        public virtual ICollection<CotizacionServicio> Servicios { get; set; } = new List<CotizacionServicio>();
     }
 }

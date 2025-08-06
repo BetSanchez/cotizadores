@@ -23,6 +23,6 @@ namespace pr_proyecto.Models
         [ForeignKey("IdEstado")]
         public virtual Estado Estado { get; set; }
 
-        public virtual ICollection<Colonia> Colonias { get; set; }
+        public virtual ICollection<Colonia> Colonias { get; set; } = new List<Colonia>();
     }
 }

@@ -83,7 +83,7 @@ namespace pr_proyecto.Models
         [ForeignKey(nameof(IdRol))]
         public virtual Rol Rol { get; set; }
 
-        public virtual ICollection<Cotizacion> Cotizaciones { get; set; }
-        public virtual ICollection<Plantilla> Plantillas { get; set; }
+        public virtual ICollection<Cotizacion> Cotizaciones { get; set; } = new List<Cotizacion>();
+        public virtual ICollection<Plantilla> Plantillas { get; set; } = new List<Plantilla>();
     }
 }
