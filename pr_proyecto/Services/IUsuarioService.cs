@@ -7,6 +7,9 @@ namespace pr_proyecto.Services
     {
         void Registrar(Usuario usuario);
         IEnumerable<Usuario> ObtenerTodos();
+        Usuario ObtenerPorId(int id);
+        void Actualizar(Usuario usuario);
+        void Eliminar(int id);
         Usuario Autenticar(string nombreUsuario, string contraseña);
     }
 }

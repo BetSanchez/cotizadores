@@ -65,6 +65,37 @@ namespace pr_proyecto.Data
                 .WithMany(r => r.Usuarios)    
                 .HasForeignKey(u => u.IdRol);  
 
+            // Configurar relaciones de Cotización
+            modelBuilder.Entity<Cotizacion>()
+                .HasRequired(c => c.Usuario)
+                .WithMany(u => u.Cotizaciones)
+                .HasForeignKey(c => c.IdUsuario)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Cotizacion>()
+                .HasRequired(c => c.UsuarioVendedor)
+                .WithMany()
+                .HasForeignKey(c => c.IdUsuarioVendedor)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Cotizacion>()
+                .HasRequired(c => c.Sucursal)
+                .WithMany(s => s.Cotizaciones)
+                .HasForeignKey(c => c.IdSucursal)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CotizacionServicio>()
+                .HasRequired(cs => cs.Cotizacion)
+                .WithMany(c => c.Servicios)
+                .HasForeignKey(cs => cs.IdCotizacion)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CotizacionServicio>()
+                .HasRequired(cs => cs.Servicio)
+                .WithMany(s => s.CotizacionServicios)
+                .HasForeignKey(cs => cs.IdServicio)
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
 

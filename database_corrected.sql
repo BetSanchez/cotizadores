@@ -11,7 +11,7 @@ CREATE TABLE estados (
   id_estado INT AUTO_INCREMENT NOT NULL,
   nombre VARCHAR(100) NOT NULL,
   id_pais INT NOT NULL,
-  PRIMARY KEY (id_estado),
+z  PRIMARY KEY (id_estado),
   FOREIGN KEY (id_pais) REFERENCES paises(id_pais)
 );
 

@@ -47,6 +47,9 @@ namespace pr_proyecto.Services
         public IEnumerable<Empresa> ObtenerTodas()
             => _repo.GetAll();
 
+        public IEnumerable<Empresa> ObtenerTodos()
+            => _repo.GetAll();
+
         public Empresa ObtenerPorId(int id)
             => _repo.GetById(id);
 

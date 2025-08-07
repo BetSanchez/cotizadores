@@ -125,6 +125,35 @@ namespace pr_proyecto.Services
         public IEnumerable<Usuario> ObtenerTodos()
             => _repo.GetAll();
 
+        public Usuario ObtenerPorId(int id)
+            => _repo.GetById(id);
+
+        public void Actualizar(Usuario usuario)
+        {
+            if (string.IsNullOrWhiteSpace(usuario.Nombre))
+                throw new ArgumentException("El nombre es obligatorio.");
+            
+            if (string.IsNullOrWhiteSpace(usuario.ApPaterno))
+                throw new ArgumentException("El apellido paterno es obligatorio.");
+            
+            if (string.IsNullOrWhiteSpace(usuario.Correo))
+                throw new ArgumentException("El correo electrónico es obligatorio.");
+            
+            if (string.IsNullOrWhiteSpace(usuario.NomUsuario))
+                throw new ArgumentException("El nombre de usuario es obligatorio.");
+
+            _repo.Update(usuario);
+        }
+
+        public void Eliminar(int id)
+        {
+            var usuario = _repo.GetById(id);
+            if (usuario == null)
+                throw new ArgumentException("El usuario no existe.");
+
+            _repo.Delete(usuario);
+        }
+
         public Usuario Autenticar(string nombreUsuario, string contraseña)
         {
             try
