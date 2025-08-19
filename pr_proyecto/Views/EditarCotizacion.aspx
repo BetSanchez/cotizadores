@@ -3,13 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="fas fa-edit text-warning"></i> Editar Cotización</h2>
+            <h2><i class="fas fa-edit text-warning"></i> Editar Cotizacion</h2>
             <div>
                 <a href="VerCotizaciones.aspx" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Volver a Lista
                 </a>
                 <a href="Crear_cotizacion.aspx" class="btn btn-success">
-                    <i class="fas fa-plus"></i> Nueva Cotización
+                    <i class="fas fa-plus"></i> Nueva Cotizacion
                 </a>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5><i class="fas fa-file-invoice"></i> Información General</h5>
+                        <h5><i class="fas fa-file-invoice"></i> Informacion General</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
-                                    <label for="txtFechaEmision">Fecha de Emisión *</label>
+                                    <label for="txtFechaEmision">Fecha de Emision *</label>
                                     <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFechaEmision" 
                                         CssClass="text-danger" ErrorMessage="La fecha de emisión es requerida." ValidationGroup="GuardarCotizacion" />

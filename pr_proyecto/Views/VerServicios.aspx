@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
-                        <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" placeholder="Buscar por nombre, descripción, términos..."></asp:TextBox>
+                        <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" placeholder="Buscar por nombre, descripcion, terminos..."></asp:TextBox>
                     </div>
                     <div class="col-md-4">
                         <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
@@ -40,14 +40,14 @@
                                 <strong class="text-primary"><%# Eval("Nombre") %></strong>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Descripción">
+                        <asp:TemplateField HeaderText="Descripcion">
                             <ItemTemplate>
                                 <div style="max-width: 300px; word-wrap: break-word;">
                                     <%# Eval("Descripcion") %>
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Términos">
+                        <asp:TemplateField HeaderText="Terminos">
                             <ItemTemplate>
                                 <div style="max-width: 250px; word-wrap: break-word; font-size: 0.9em;">
                                     <%# Eval("Terminos") %>
@@ -87,8 +87,8 @@
             <div class="col-12">
                 <div class="alert alert-info">
                     <i class="fas fa-info-circle"></i>
-                    <strong>Información:</strong> Esta es la lista completa de servicios disponibles para cotizar. 
-                    Para crear una cotización con estos servicios, utiliza la opción "Crear Cotización" desde el dashboard.
+                    <strong>Informacion:</strong> Esta es la lista completa de servicios disponibles para cotizar. 
+                    Para crear una cotizacion con estos servicios, utiliza la opcion "Crear Cotizacion" desde el dashboard.
                 </div>
             </div>
         </div>
@@ -111,13 +111,13 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <h6 class="text-primary">Descripción:</h6>
+                            <h6 class="text-primary">Descripcion:</h6>
                             <p id="detalleDescripcion"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <h6 class="text-primary">Términos:</h6>
+                            <h6 class="text-primary">Terminos:</h6>
                             <p id="detalleTerminos"></p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <a href="Crear_cotizacion.aspx" class="btn btn-success">
-                        <i class="fas fa-plus"></i> Crear Cotización
+                        <i class="fas fa-plus"></i> Crear Cotizacion
                     </a>
                 </div>
             </div>

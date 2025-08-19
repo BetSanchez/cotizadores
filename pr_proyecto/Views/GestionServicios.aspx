@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="fas fa-cogs text-danger"></i> Gestión de Servicios</h2>
+            <h2><i class="fas fa-cogs text-danger"></i> Gestion de Servicios</h2>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevoServicio">
                 <i class="fas fa-plus"></i> Nuevo Servicio
             </button>
@@ -42,14 +42,14 @@
                                 <strong><%# Eval("Nombre") %></strong>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Descripción">
+                        <asp:TemplateField HeaderText="Descripcion">
                             <ItemTemplate>
                                 <div style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">
                                     <%# Eval("Descripcion") %>
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Términos">
+                        <asp:TemplateField HeaderText="Terminos">
                             <ItemTemplate>
                                 <div style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                                     <%# Eval("Terminos") %>
@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group mb-3">
-                                <asp:Label runat="server" AssociatedControlID="txtDescripcionServicio">Descripción</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="txtDescripcionServicio">Descripcion</asp:Label>
                                 <asp:TextBox ID="txtDescripcionServicio" runat="server" CssClass="form-control" 
                                     TextMode="MultiLine" Rows="3" MaxLength="500"></asp:TextBox>
                             </div>
@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group mb-3">
-                                <asp:Label runat="server" AssociatedControlID="txtTerminosServicio">Términos</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="txtTerminosServicio">Terminos</asp:Label>
                                 <asp:TextBox ID="txtTerminosServicio" runat="server" CssClass="form-control" 
                                     TextMode="MultiLine" Rows="3" MaxLength="1000"></asp:TextBox>
                             </div>

@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2><i class="fas fa-list text-primary"></i> Mis Cotizaciones</h2>
             <a href="Crear_cotizacion.aspx" class="btn btn-success">
-                <i class="fas fa-plus"></i> Nueva Cotización
+                <i class="fas fa-plus"></i> Nueva Cotizacion
             </a>
         </div>
 
@@ -54,7 +54,7 @@
                                 <strong><%# Eval("Folio") %></strong>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha Emisión">
+                        <asp:TemplateField HeaderText="Fecha Emision">
                             <ItemTemplate>
                                 <%# Eval("FechaEmision", "{0:dd/MM/yyyy}") %>
                             </ItemTemplate>
