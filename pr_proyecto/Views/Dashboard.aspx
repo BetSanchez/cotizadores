@@ -152,9 +152,15 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 mb-3">
-                                    <a href="/Views/Reportes.aspx" class="btn btn-outline-purple w-100">
+                                    <a href="/Views/ReporteCotizaciones.aspx" class="btn btn-outline-purple w-100">
                                         <i class="fas fa-chart-bar"></i><br>
-                                        Generar Reportes
+                                        Generar Reporte
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="/Views/ExportarCotizaciones.aspx" class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-file-export"></i><br>
+                                        Exportar Cotizaciones
                                     </a>
                                 </div>
                             </div>
@@ -200,6 +206,12 @@
                                </div>
                            </div>
                            <div class="row">
+                               <div class="col-md-3 mb-3">
+                                   <a href="/Views/VerUsuarios.aspx" class="btn btn-outline-primary w-100">
+                                       <i class="fas fa-users"></i><br>
+                                       Ver Usuarios
+                                   </a>
+                               </div>
                                <div class="col-md-3 mb-3">
                                    <a href="/Views/GestionRoles.aspx" class="btn btn-outline-purple w-100">
                                        <i class="fas fa-user-shield"></i><br>

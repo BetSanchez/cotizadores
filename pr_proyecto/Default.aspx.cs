@@ -12,8 +12,7 @@ namespace pr_proyecto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verificar si ya hay un usuario autenticado
-            if (AuthHelper.IsAuthenticated())
+             if (AuthHelper.IsAuthenticated())
             {
                 // Si ya está autenticado, redirigir al dashboard
                 Response.Redirect("~/Views/Dashboard.aspx");

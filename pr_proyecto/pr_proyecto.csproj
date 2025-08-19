@@ -258,9 +258,13 @@
         <Content Include="Views\EditarCotizacion.aspx" />
         <Content Include="Views\GestionRoles.aspx" />
         <Content Include="Views\GestionPlantillas.aspx" />
+    <Content Include="Views\ReporteCotizaciones.aspx" />
+    <Content Include="Views\ExportarCotizaciones.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Views\TablaCotizaciones.aspx" />
+    <Content Include="Views\VerUsuarios.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -467,6 +471,33 @@
         <Compile Include="Views\GestionPlantillas.aspx.designer.cs">
             <DependentUpon>GestionPlantillas.aspx</DependentUpon>
         </Compile>
+    <Compile Include="Views\TablaCotizaciones.aspx.cs">
+      <DependentUpon>TablaCotizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TablaCotizaciones.aspx.designer.cs">
+      <DependentUpon>TablaCotizaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReporteCotizaciones.aspx.cs">
+      <DependentUpon>ReporteCotizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReporteCotizaciones.aspx.designer.cs">
+      <DependentUpon>ReporteCotizaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExportarCotizaciones.aspx.cs">
+      <DependentUpon>ExportarCotizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ExportarCotizaciones.aspx.designer.cs">
+      <DependentUpon>ExportarCotizaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerUsuarios.aspx.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerUsuarios.aspx.designer.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
