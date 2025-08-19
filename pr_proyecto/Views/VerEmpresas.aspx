@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="fas fa-building text-primary"></i> Gestión de Empresas y Sucursales</h2>
+            <h2><i class="fas fa-building text-primary"></i> Gestion de Empresas y Sucursales</h2>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevaEmpresa">
                 <i class="fas fa-plus"></i> Nueva Empresa
             </button>
@@ -58,7 +58,6 @@
                                         <strong><%# Eval("Nombre") %></strong>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                                        <!-- Campos RFC, Teléfono y Email no existen en BD para empresas, se eliminan -->
                                 <asp:TemplateField HeaderText="Sucursales">
                                     <ItemTemplate>
                                         <span class="badge bg-info"><%# GetCantidadSucursales(Eval("IdEmpresa")) %></span>
@@ -258,9 +257,7 @@
 
         function limpiarModalEmpresa() {
             document.getElementById('<%= txtNombreEmpresa.ClientID %>').value = '';
-            document.getElementById('<%= txtRfcEmpresa.ClientID %>').value = '';
-            document.getElementById('<%= txtTelefonoEmpresa.ClientID %>').value = '';
-            document.getElementById('<%= txtEmailEmpresa.ClientID %>').value = '';
+
             document.getElementById('<%= hdnIdEmpresa.ClientID %>').value = '';
             document.querySelector('#modalEmpresaLabel').textContent = 'Nueva Empresa';
         }
@@ -269,10 +266,7 @@
             document.getElementById('<%= ddlEmpresaSucursal.ClientID %>').selectedIndex = 0;
             document.getElementById('<%= txtNomComercial.ClientID %>').value = '';
             document.getElementById('<%= txtTelefonoSucursal.ClientID %>').value = '';
-            document.getElementById('<%= txtEmailSucursal.ClientID %>').value = '';
-            document.getElementById('<%= txtCalleSucursal.ClientID %>').value = '';
-            document.getElementById('<%= txtNumeroSucursal.ClientID %>').value = '';
-            document.getElementById('<%= txtCpSucursal.ClientID %>').value = '';
+
             document.getElementById('<%= hdnIdSucursal.ClientID %>').value = '';
             document.querySelector('#modalSucursalLabel').textContent = 'Nueva Sucursal';
         }

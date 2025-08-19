@@ -135,60 +135,22 @@ namespace pr_proyecto.Repository
 
         public void Add(Usuario usuario)
         {
+            _context.Usuarios.Add(usuario);
             try
             {
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Agregando usuario '{usuario.NomUsuario}' al contexto");
-                
-                // Verificar que el contexto esté disponible
-                if (_context == null)
-                {
-                    System.Diagnostics.Debug.WriteLine("UsuarioRepository.Add: ERROR - Contexto es null");
-                    throw new InvalidOperationException("El contexto de base de datos no está disponible");
-                }
-
-                // Verificar que la conexión esté disponible
-                if (_context.Database.Connection.State != System.Data.ConnectionState.Open)
-                {
-                    System.Diagnostics.Debug.WriteLine("UsuarioRepository.Add: Abriendo conexión a la base de datos");
-                    _context.Database.Connection.Open();
-                }
-                
-                _context.Usuarios.Add(usuario);
-                
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Usuario agregado al contexto, intentando guardar cambios");
-                
-                var result = _context.SaveChanges();
-                
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: SaveChanges completado. Filas afectadas: {result}");
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: ID del usuario recién creado: {usuario.IdUsuario}");
-            }
-            catch (System.Data.Entity.Core.EntityCommandExecutionException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: EntityCommandExecutionException: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Inner Exception: {ex.InnerException?.Message}");
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Stack Trace: {ex.StackTrace}");
-                
-                // Intentar obtener más detalles del error
-                if (ex.InnerException != null)
-                {
-                    System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Inner Exception Stack Trace: {ex.InnerException.StackTrace}");
-                }
-                
-                throw new Exception($"Error al ejecutar el comando de inserción: {ex.Message}", ex);
-            }
-            catch (System.Data.SqlClient.SqlException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: SqlException: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Error Number: {ex.Number}");
-                throw new Exception($"Error de base de datos: {ex.Message}", ex);
+                _context.SaveChanges();
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Error general: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"UsuarioRepository.Add: Stack Trace: {ex.StackTrace}");
-                throw new Exception($"Error inesperado durante el registro: {ex.Message}", ex);
+                // Extrae el mensaje más profundo de la InnerException
+                var deepest = ex.InnerException?.InnerException?.Message
+                              ?? ex.InnerException?.Message
+                              ?? ex.Message;
+                // Relanza una excepción con ese mensaje para que la veas en la UI o en el Debug
+                throw new Exception($"Error al guardar Usuario: {deepest}", ex);
             }
         }
+
 
         public void Delete(Usuario usuario)
         {

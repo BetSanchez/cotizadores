@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="fas fa-address-book text-success"></i> Gestión de Contactos</h2>
+            <h2><i class="fas fa-address-book text-success"></i> Gestion de Contactos</h2>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevoContacto">
                 <i class="fas fa-user-plus"></i> Nuevo Contacto
             </button>

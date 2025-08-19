@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-file-alt"></i> Gestión de Plantillas de Servicios</h2>
+                    <h2><i class="fas fa-file-alt"></i> Gestion de Plantillas de Servicios</h2>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevaPlantilla">
                         <i class="fas fa-plus"></i> Nueva Plantilla
                     </button>
@@ -54,7 +54,7 @@
                                 <span class="badge bg-info"><%# GetCantidadServicios(Eval("IdPlantilla")) %> servicios</span>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha Creación">
+                        <asp:TemplateField HeaderText="Fecha Creacion">
                             <ItemTemplate>
                                 <%# Eval("FechaCreacion", "{0:dd/MM/yyyy}") %>
                             </ItemTemplate>
@@ -99,7 +99,7 @@
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h5 class="card-title">Servicios Únicos</h5>
+                        <h5 class="card-title">Servicios Unicos</h5>
                         <h3 class="text-warning"><asp:Label ID="lblServiciosUnicos" runat="server" Text="0" /></h3>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                                     CssClass="text-danger" ErrorMessage="El nombre es requerido." ValidationGroup="GuardarPlantilla" />
                             </div>
                             <div class="col-md-6">
-                                <asp:Label runat="server" AssociatedControlID="txtDescripcionPlantilla">Descripción</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="txtDescripcionPlantilla">Descripcion</asp:Label>
                                 <asp:TextBox ID="txtDescripcionPlantilla" runat="server" CssClass="form-control" MaxLength="500" TextMode="MultiLine" Rows="2"></asp:TextBox>
                             </div>
                         </div>

@@ -189,7 +189,7 @@
                                 <div class="col-md-3 mb-3">
                                     <a href="/Views/EstadoCotizaciones.aspx" class="btn btn-outline-info w-100">
                                         <i class="fas fa-chart-line"></i><br>
-                                        Estado Cotizaciones
+                                        Cotizaciones
                                     </a>
                                 </div>
                                                                <div class="col-md-3 mb-3">
